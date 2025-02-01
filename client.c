@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/01 12:10:35 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/01 13:14:09 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@ void	send_signal(const char *str, int pid)
 		while (i > 0)
 		{
 			if (c < i)
+			{
 				kill(pid, SIGUSR1);
+				printf("0");
+			}
 			else
 			{
 				kill(pid, SIGUSR2);
 				c -= i;
+				printf("1");
 			}
 			i /= 2;
+			usleep(50);
 		}
-		usleep(100);
+		printf("	");
+		usleep(200);
 		str++;
 	}
-	kill(pid, SIGUSR1);
 }
 
 int	main(int ac, char **av)
