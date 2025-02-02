@@ -34,6 +34,9 @@ server_bonus: $(OBJSB1) $(OBJS)
 client_bonus: $(OBJSB2) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJSB2) $(OBJS) -o client_bonus
 
+%.o: %.c header.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OBJS1) $(OBJS2) $(OBJSB1) $(OBJSB2) $(OBJS)
 fclean: clean
