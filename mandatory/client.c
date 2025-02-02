@@ -6,40 +6,37 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/01 13:14:09 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/02 11:35:08 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
 void	send_signal(const char *str, int pid)
 {
-	char	c;
 	int		i;
 
 	while (*str)
 	{
-		c = *str;
-		i = 128;
-		while (i > 0)
+		i = 7;
+		while (i >= 0)
 		{
-			if (c < i)
-			{
-				kill(pid, SIGUSR1);
-				printf("0");
-			}
-			else
-			{
+			if (*str & (1 << i))
 				kill(pid, SIGUSR2);
-				c -= i;
-				printf("1");
-			}
-			i /= 2;
-			usleep(50);
+			else
+				kill(pid, SIGUSR1);
+			usleep(100);
+			i--;
 		}
-		printf("	");
-		usleep(200);
+		usleep(500);
 		str++;
+	}
+	i = 7;
+	while (i >= 0)
+	{
+		kill(pid, SIGUSR1);
+		usleep(100);
+		i--;
 	}
 }
 
@@ -50,8 +47,8 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		printf("please enter : %s <server PID> <messsage>", av[0]);
-		return (1);
+		ft_putendl_fd("please enter : ./client <server PID> <messsage>",1);
+		exit (EXIT_FAILURE);
 	}
 	pid = ft_atoi(av[1]);
 	str = av[2];
