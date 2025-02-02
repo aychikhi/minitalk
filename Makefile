@@ -1,6 +1,6 @@
 NAME = minitalk
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ./utils/ft_atoi.c ./utils/ft_putchar_fd.c ./utils/ft_putstr_fd.c ./utils/ft_putendl_fd.c\
 		./utils/ft_putnbr_fd.c\

@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 11:35:08 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/02 12:37:21 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	send_signal(const char *str, int pid)
 {
-	int		i;
+	int	i;
 
 	while (*str)
 	{
@@ -47,8 +47,8 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		ft_putendl_fd("please enter : ./client <server PID> <messsage>",1);
-		exit (EXIT_FAILURE);
+		ft_putendl_fd("please enter : ./client <server PID> <messsage>", 1);
+		exit(EXIT_FAILURE);
 	}
 	pid = ft_atoi(av[1]);
 	str = av[2];
