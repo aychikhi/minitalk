@@ -6,11 +6,20 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 12:37:21 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:39:50 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+void	send_bits(int pid, char bit)
+{
+	if (bit == '0')
+		kill(pid, SIGUSR1);
+	else
+		kill(pid, SIGUSR2);
+	usleep(100);
+}
 
 void	send_signal(const char *str, int pid)
 {
@@ -22,20 +31,18 @@ void	send_signal(const char *str, int pid)
 		while (i >= 0)
 		{
 			if (*str & (1 << i))
-				kill(pid, SIGUSR2);
+				send_bits(pid, '1');
 			else
-				kill(pid, SIGUSR1);
-			usleep(100);
+				send_bits(pid, '0');
+			usleep(500);
 			i--;
 		}
-		usleep(500);
 		str++;
 	}
 	i = 7;
 	while (i >= 0)
 	{
-		kill(pid, SIGUSR1);
-		usleep(100);
+		send_bits(pid, '0');
 		i--;
 	}
 }

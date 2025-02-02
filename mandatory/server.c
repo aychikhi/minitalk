@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:58:42 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 12:35:01 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:34:15 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	handler(int sig, siginfo_t *info, void *context)
 		holder = 0;
 	}
 	pid = info->si_pid;
-	if (sig == SIGUSR2)
-		holder |= (1 << (7 - bits));
+	if (sig == SIGUSR1)
+		holder = holder << 1 | 0;
+	else if (sig == SIGUSR2)
+		holder = holder << 1 | 1;
 	bits++;
 	if (bits == 8)
 	{
