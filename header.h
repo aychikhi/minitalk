@@ -6,14 +6,13 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:58:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 11:33:53 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/02 12:33:41 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
