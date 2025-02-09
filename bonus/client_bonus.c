@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 14:57:51 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 13:39:40 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/09 10:28:12 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	main(int ac, char **av)
 	}
 	signal(SIGUSR2, mess);
 	pid = ft_atoi(av[1]);
+	if (pid <= 0)
+		return (0);
 	str = av[2];
 	send_signal(str, pid);
 }

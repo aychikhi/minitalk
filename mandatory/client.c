@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:11 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/02 13:39:50 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/09 10:26:23 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	pid = ft_atoi(av[1]);
+	if (pid <= 0)
+		return (0);
 	str = av[2];
 	send_signal(str, pid);
 }
