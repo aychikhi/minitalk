@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:25:47 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/13 13:15:30 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:08:01 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	error_mess(int flag)
 {
 	if (flag == 1)
-		ft_putendl_fd("please enter : ./client <server PID> <messsage>", 2);
+		ft_putendl_fd("please enter : ./client_bonus <server PID> <messsage>", 2);
 	else
 		ft_putendl_fd("invalid PID", 2);
 	exit(1);
