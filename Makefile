@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ./utils/ft_atoi.c ./utils/ft_putchar.c ./utils/ft_putstr.c ./utils/ft_putendl.c ./utils/ft_putnbr.c\
+SRCS = ./utils/ft_atoi.c ./utils/ft_putchar.c ./utils/ft_putstr.c ./utils/ft_putendl.c ./utils/ft_putnbr.c ./utils/ft_isspace.c ./utils/ft_isdigit.c\
 
 OBJS = $(SRCS:.c=.o)
 
